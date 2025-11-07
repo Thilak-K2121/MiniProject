@@ -28,15 +28,6 @@ ChartJS.register(
   Filler
 );
 
-// (The chart components RadarChart, FeatureImportanceChart, etc. are all 
-// the same as in the previous step. I'm omitting them here for brevity, 
-// just scroll down to the main component.)
-
-// ... (RadarChart component code is unchanged) ...
-// ... (FeatureImportanceChart component code is unchanged) ...
-// ... (PerformanceBarChart component code is unchanged) ...
-
-// (Mock data for the charts, same as before)
 const performanceMetrics = {
   svm: { accuracy: 0.92, precision: 0.91, recall: 0.92, f1_score: 0.91 },
   mlp: { accuracy: 0.95, precision: 0.94, recall: 0.95, f1_score: 0.94 },
@@ -44,10 +35,6 @@ const performanceMetrics = {
   rf: { accuracy: 0.97, precision: 0.97, recall: 0.97, f1_score: 0.97 }
 };
 
-// --- (All the chart components like RadarChart, FeatureImportanceChart go here) ---
-// (Copy-paste them from your existing file)
-
-// --- NEW: RadarChart component (same as before) ---
 const RadarChart = () => {
   const data = {
     labels: ['Accuracy', 'Precision', 'Recall', 'F1-Score'],
@@ -59,7 +46,6 @@ const RadarChart = () => {
         borderColor: 'rgba(234, 179, 8, 1)',
         borderWidth: 2,
       },
-      // ... (other model datasets: mlp, svm, knn) ...
        {
         label: 'MLP',
         data: [performanceMetrics.mlp.accuracy, performanceMetrics.mlp.precision, performanceMetrics.mlp.recall, performanceMetrics.mlp.f1_score],
@@ -102,7 +88,6 @@ const RadarChart = () => {
   return <Radar data={data} options={options} />;
 };
 
-// --- NEW: FeatureImportanceChart component (same as before) ---
 const FeatureImportanceChart = () => {
   const [chartData, setChartData] = useState(null);
   const [error, setError] = useState(null);
@@ -142,7 +127,6 @@ const FeatureImportanceChart = () => {
   return <Bar options={options} data={chartData} />;
 };
 
-// --- NEW: PerformanceBarChart component (same as before) ---
 const PerformanceBarChart = () => {
   const labels = Object.keys(performanceMetrics);
   const performanceChartData = {
@@ -175,18 +159,14 @@ const PerformanceBarChart = () => {
 };
 
 
-// --- Main Page Component ---
 export default function Visualizer() {
-  
-  // --- NEW: Print Handler Function ---
-  const handlePrint = () => {
-    window.print(); // This triggers the browser's print dialog
+    const handlePrint = () => {
+    window.print();
   };
   
   return (
     <div className="max-w-4xl mx-auto py-20 px-6 space-y-12">
       
-      {/* --- NEW: Page Header with Print Button --- */}
       <div className="flex justify-between items-center no-print">
         <h1 className="text-4xl font-bold text-center text-cosmic-accent">
           Data Visualizer
@@ -198,9 +178,7 @@ export default function Visualizer() {
           Export as PDF
         </button>
       </div>
-      
-      {/* --- NEW: Report Content Wrapper --- */}
-      {/* This div wraps all the charts we want in our PDF report */}
+
       <div id="report-content">
         <div className="bg-cosmic-card/70 backdrop-blur-md p-6 rounded-2xl border border-white/10 chart-container">
           <RadarChart />

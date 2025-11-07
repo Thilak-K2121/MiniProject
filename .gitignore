@@ -1,0 +1,40 @@
+# --- NEBULALENS GITHUB IGNORE FILE ---
+
+# 1. --- CRITICAL SECRET FILE ---
+# This is the most important line. It prevents your
+# Gemini API Key from ever being uploaded to GitHub.
+backend/.env
+
+# 2. --- PYTHON & BACKEND ---
+# Ignore the entire virtual environment
+backend/.venv/
+# Ignore Python's compiled cache files
+__pycache__/
+*.pyc
+
+# 3. --- NODE & FRONTEND ---
+# Ignore all 100,000+ files in node_modules
+frontend/node_modules/
+# Ignore the production build folder
+frontend/dist/
+# Ignore local environment files for the frontend
+frontend/.env.local
+frontend/.env.*.local
+
+# 4. --- DATA (Optional but Recommended) ---
+# Ignore the large CSV dataset.
+# Teammates should download this separately.
+star_classification.csv
+
+# 5. --- OS & EDITOR JUNK ---
+# macOS
+.DS_Store
+# Windows
+Thumbs.db
+# VS Code
+.vscode/
+# JetBrains (PyCharm, WebStorm)
+.idea/
+# Log files
+npm-debug.log*
+yarn-error.log*
